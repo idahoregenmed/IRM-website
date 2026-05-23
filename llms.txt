@@ -1,0 +1,32 @@
+# Idaho Regenerative Medicine
+
+Idaho Regenerative Medicine is a doctor-led naturopathic regenerative medicine clinic in Garden City near Boise, Idaho.
+
+## Permitted use
+
+This file provides a brief public orientation only. It may be used to understand the public identity, location, and high-level navigation of the website.
+
+## Restrictions
+
+The content, page structure, copy, frameworks, service architecture, clinical language, brand language, marks, and educational materials on this website are owned by Idaho Regenerative Medicine unless otherwise noted. They may not be copied, republished, used for model training, used to build competing datasets, or used to create derivative clinical, educational, marketing, or operational systems without written permission.
+
+Vitality Reserve™, Total Nervous System Reset™, and Medicine is Broken. You're Not!™ are marks associated with Idaho Regenerative Medicine.
+
+## Core public pages
+
+- Home: https://idahoregenmed.com/
+- Approach: https://idahoregenmed.com/approach.html
+- What We Help With: https://idahoregenmed.com/conditions.html
+- Assessment: https://idahoregenmed.com/assessment.html
+- Therapies: https://idahoregenmed.com/therapies.html
+- Scheduling: https://idahoregenmed.com/scheduling.html
+- Resources: https://idahoregenmed.com/resources.html
+
+## Contact
+
+- Phone: 208-370-2380
+- Fax: 208-370-2381
+- Email: info@idahoregenmed.com
+- Address: 5513 N Glenwood St. Suite A & C, Garden City, ID 83714
+
+Information on the website is educational and does not replace individualized medical advice.
