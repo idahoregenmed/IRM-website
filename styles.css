@@ -3034,12 +3034,14 @@ a.page-card:focus-visible {
   .therapy-category-grid,
   .therapy-index-grid,
   .page-grid--three,
+  .page-grid--four,
   .page-grid--framework { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .philosophy { grid-template-columns: 1fr; }
   .philosophy__book { position: static; justify-items: start; }
   .book-page .philosophy__book { position: static; }
   .section__head--split { grid-template-columns: 1fr; }
-  .footer__grid { grid-template-columns: 1fr 1fr; }
+  .footer__grid,
+  .footer__grid:has(.footer__start-here) { grid-template-columns: 1fr 1fr; }
   .footer__bottom { flex-direction: column; }
   .footer__fineprint { text-align: left; }
   .therapy-card--wide { grid-column: auto; }
@@ -3059,6 +3061,7 @@ a.page-card:focus-visible {
   .therapy-index-grid,
   .page-grid--framework,
   .page-grid--three,
+  .page-grid--four,
   .page-grid--two { grid-template-columns: 1fr; }
   .expert-profile__intro {
     grid-template-columns: 48px minmax(0, 1fr);
@@ -3085,7 +3088,8 @@ a.page-card:focus-visible {
   .therapy-principles { grid-template-columns: 1fr; }
   .cta__details { grid-template-columns: 1fr; }
   .philosophy__pillars { grid-template-columns: 1fr; }
-  .footer__grid { grid-template-columns: 1fr; }
+  .footer__grid,
+  .footer__grid:has(.footer__start-here) { grid-template-columns: 1fr; }
   .hero__badges { gap: 12px 20px; }
   .brand__sub { display: none; }
   .brand__virtual {
@@ -3096,8 +3100,8 @@ a.page-card:focus-visible {
     margin-top: 3px;
   }
   .hero__cta { gap: 10px; }
-  .hero__cta .btn { flex: 1 1 auto; min-width: 160px; }
-  .cta__actions .btn { flex: 1 1 auto; min-width: 200px; }
+  .hero__cta .btn { flex: 1 1 auto; min-width: min(160px, 100%); }
+  .cta__actions .btn { flex: 1 1 auto; min-width: min(200px, 100%); }
   .footer__bottom { font-size: 12px; }
   .therapy__row { flex-wrap: wrap; }
 }
