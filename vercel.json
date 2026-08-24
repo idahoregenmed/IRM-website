@@ -6,5 +6,11 @@
       "source": "/scheduling",
       "destination": "/scheduling.html"
     }
+  ],
+  "redirects": [
+    {
+      "source": "/404",
+      "destination": "/404.html"
+    }
   ]
 }

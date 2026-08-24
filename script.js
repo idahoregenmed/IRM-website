@@ -336,6 +336,10 @@
     { title: 'Vitality Reserve™', url: './vitality-reserve.html', keywords: 'Vitality Reserve membership reserve continuity care long term regenerative health resilience longevity programs Foundation Reserve Transformation Reserve Optimization Reserve' },
     { title: 'The Story Behind IRM', url: './story-behind-irm.html', keywords: 'story behind IRM Dr Walton personal story naturopathic regenerative medicine' },
     { title: 'Book & Philosophy', url: './book.html', keywords: 'Medicine is Broken You are Not book philosophy waitlist coming soon' },
+    { title: 'Regenerative Medicine in Boise', url: './regenerative-medicine-boise.html', keywords: 'Boise Garden City Meridian Eagle Nampa Treasure Valley Idaho location clinic near me regenerative medicine' },
+    { title: 'New Patients', url: './new-patients.html', keywords: 'new patient first visit getting started consult referral cash pay HSA FSA' },
+    { title: 'Virtual Appointments', url: './virtual-appointments.html', keywords: 'virtual telehealth remote online video consult Idaho telemedicine' },
+    { title: 'Privacy Policy', url: './privacy-policy.html', keywords: 'privacy policy HIPAA data protection cookies legal' },
   ];
 
   const scoreSearchResult = (page, query) => {
@@ -661,4 +665,51 @@
     }, { rootMargin: '0px 0px 10% 0px', threshold: 0.01 });
     revealEls.forEach(el => ro.observe(el));
   }
+
+  /* SEO: auto-generate FAQPage JSON-LD from .faq-list content when not already present */
+  const hasFaqSchema = () => $$('script[type="application/ld+json"]').some(s => {
+    try {
+      const data = JSON.parse(s.textContent);
+      return data['@type'] === 'FAQPage';
+    } catch { return false; }
+  });
+
+  const injectFaqSchema = () => {
+    if (hasFaqSchema()) return;
+    const faqs = $$('.faq-list .faq, .faq-list article.faq');
+    if (!faqs.length) return;
+    const mainEntity = faqs.map(faq => {
+      const q = $('h3', faq) || $('h2', faq);
+      const a = $('p', faq);
+      if (!q || !a) return null;
+      return {
+        '@type': 'Question',
+        name: q.textContent.trim(),
+        acceptedAnswer: { '@type': 'Answer', text: a.textContent.trim() }
+      };
+    }).filter(Boolean);
+    if (!mainEntity.length) return;
+    const script = document.createElement('script');
+    script.type = 'application/ld+json';
+    script.dataset.faqSchema = 'auto';
+    script.textContent = JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': 'FAQPage',
+      mainEntity
+    });
+    document.head.append(script);
+  };
+  injectFaqSchema();
+
+  /* SEO: privacy policy link in footer */
+  $$('.footer__bottom').forEach(bottom => {
+    if (bottom.querySelector('a[href*="privacy-policy"]')) return;
+    const copyright = bottom.querySelector('p:first-child');
+    if (!copyright) return;
+    const sep = document.createTextNode(' · ');
+    const link = document.createElement('a');
+    link.href = './privacy-policy.html';
+    link.textContent = 'Privacy Policy';
+    copyright.append(sep, link);
+  });
 })();
