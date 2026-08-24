@@ -359,18 +359,6 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
   text-decoration: underline;
   text-decoration-thickness: 1px;
 }
-.irm-marked {
-  white-space: nowrap;
-}
-.irm-inline-logo {
-  display: inline-block;
-  width: 1em;
-  height: 1em;
-  margin-left: .24em;
-  vertical-align: -0.14em;
-  border-radius: 999px;
-  object-fit: contain;
-}
 .brand-separator {
   display: inline-block;
   color: var(--terracotta);
