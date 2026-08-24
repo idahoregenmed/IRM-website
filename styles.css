@@ -2083,7 +2083,7 @@ a[href$="autonomic-response-testing.html"] { --therapy-icon: "∿"; }
     padding-top: 28px;
     border-top: 1px solid rgba(255, 255, 255, 0.12);
   }
-  .footer-search { display: none; }
+  .footer-search { max-width: none; }
   .footer__note { max-width: none; }
 }
 .footer__start-here h4 {
