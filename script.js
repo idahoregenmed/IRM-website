@@ -108,7 +108,8 @@
     { title: 'Longevity & Healthspan', url: './longevity-healthspan.html' }
   ];
 
-  const currentFile = window.location.pathname.split('/').pop() || 'index.html';
+  let currentFile = window.location.pathname.split('/').pop() || 'index.html';
+  if (currentFile && !currentFile.includes('.')) currentFile += '.html';
   const conditionFiles = conditionMenuItems.map(item => item.url.replace('./', ''));
 
   const buildConditionLink = item => {
@@ -218,7 +219,7 @@
     'prolozone.html': ['tendon-ligament-injuries.html', 'joint-degeneration.html', 'persistent-pain-patterns.html'],
     'platelet-rich-plasma.html': ['joint-degeneration.html', 'tendon-ligament-injuries.html', 'recovery-performance.html'],
     'biologics.html': ['joint-degeneration.html', 'tendon-ligament-injuries.html', 'recovery-performance.html', 'longevity-healthspan.html'],
-    'cell-therapies.html': ['joint-degeneration.html', 'tendon-ligament-injuries.html', 'persistent-pain-patterns.html'],
+    'stem-cell-therapies.html': ['joint-degeneration.html', 'tendon-ligament-injuries.html', 'persistent-pain-patterns.html'],
     'exosomes.html': ['joint-degeneration.html', 'autoimmune-inflammatory-patterns.html', 'recovery-performance.html', 'longevity-healthspan.html'],
     'intra-articular-injections.html': ['joint-degeneration.html', 'persistent-pain-patterns.html'],
     'intra-osseous-injections.html': ['joint-degeneration.html', 'persistent-pain-patterns.html'],
@@ -325,7 +326,7 @@
     { title: 'Prolotherapy', url: './prolotherapy.html', keywords: 'prolotherapy dextrose ligament laxity joint instability cartilage disc repair' },
     { title: 'Prolozone', url: './prolozone.html', keywords: 'prolozone ozone prolotherapy oxygen ligament joint pain injections' },
     { title: 'Platelet Rich Plasma', url: './platelet-rich-plasma.html', keywords: 'PRP platelet rich plasma platelets growth factors injection tissue repair' },
-    { title: 'Stem Cell Therapies', url: './cell-therapies.html', keywords: 'stem cell therapies stem cells bone marrow adipose umbilical biologics' },
+    { title: 'Stem Cell Therapies', url: './stem-cell-therapies.html', keywords: 'stem cell therapies stem cells bone marrow adipose umbilical biologics' },
     { title: 'Exosomes', url: './exosomes.html', keywords: 'exosomes secretomes adisomes extracellular vesicles cell signaling biologics' },
     { title: 'Neural Therapy', url: './neural-therapy.html', keywords: 'neural therapy nervous system scars interference fields autonomic reset' },
     { title: 'Perineural Therapy', url: './perineural-therapy.html', keywords: 'perineural therapy nerve pain irritated nerves burning radiating pain' },

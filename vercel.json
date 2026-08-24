@@ -11,6 +11,16 @@
     {
       "source": "/404",
       "destination": "/404.html"
+    },
+    {
+      "source": "/cell-therapies",
+      "destination": "/stem-cell-therapies",
+      "permanent": true
+    },
+    {
+      "source": "/cell-therapies.html",
+      "destination": "/stem-cell-therapies",
+      "permanent": true
     }
   ]
 }
