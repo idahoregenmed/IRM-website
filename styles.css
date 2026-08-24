@@ -543,6 +543,26 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 2px 6px;
 }
+.nav__dropdown-sub {
+  font-size: 13px;
+  padding-left: 1.1rem;
+}
+.nav__dropdown-more {
+  grid-column: 1 / -1;
+  margin-top: 6px;
+  padding-top: 8px;
+  border-top: 1px solid rgba(0,125,181,.1);
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--blue);
+  font-weight: 500;
+}
+.nav__dropdown-more:hover,
+.nav__dropdown-more:focus-visible {
+  color: var(--evergreen-2);
+}
 
 .nav__dropdown[aria-label="What we help with submenu"] a {
   display: flex;
@@ -2058,6 +2078,18 @@ a[href$="autonomic-response-testing.html"] { --therapy-icon: "∿"; }
   gap: 32px;
   align-items: start;
 }
+.footer__grid:has(.footer__start-here) {
+  grid-template-columns: minmax(0, 1.15fr) repeat(4, minmax(0, 1fr));
+}
+.footer__start-here h4 {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--aqua);
+  margin: 0 0 14px;
+  font-weight: 500;
+}
 .brand--footer { color: var(--cream); }
 .brand--footer .brand__name { color: var(--cream); }
 .brand--footer .brand__sub { color: rgba(185,226,236,.72); }
@@ -2588,6 +2620,29 @@ a.page-card:focus-visible {
   border-color: var(--gold);
   color: var(--evergreen-3);
 }
+.therapy-index-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 28px 24px;
+}
+.therapy-index-group__title {
+  font-family: var(--serif);
+  font-size: 1.05rem;
+  font-weight: 600;
+  margin: 0 0 12px;
+  color: var(--evergreen-2);
+}
+.therapy-index-group__title a {
+  color: inherit;
+  text-decoration: none;
+}
+.therapy-index-group__title a:hover,
+.therapy-index-group__title a:focus-visible {
+  color: var(--blue);
+}
+.therapy-index-group .therapy-link-list {
+  margin-top: 0 !important;
+}
 .page-card__label {
   display: inline-flex;
   margin-bottom: 16px;
@@ -2989,6 +3044,7 @@ a.page-card:focus-visible {
   .therapy-bridge { grid-template-columns: 1fr; }
   .page-grid,
   .therapy-category-grid,
+  .therapy-index-grid,
   .page-grid--three,
   .page-grid--framework { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .philosophy { grid-template-columns: 1fr; }
@@ -3012,6 +3068,7 @@ a.page-card:focus-visible {
   .nextstep__cards { grid-template-columns: 1fr; }
   .page-grid,
   .therapy-category-grid,
+  .therapy-index-grid,
   .page-grid--framework,
   .page-grid--three,
   .page-grid--two { grid-template-columns: 1fr; }

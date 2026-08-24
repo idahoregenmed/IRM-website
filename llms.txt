@@ -1,33 +1,97 @@
 # Idaho Regenerative Medicine
 
-Idaho Regenerative Medicine is a doctor-led naturopathic regenerative medicine clinic in Garden City near Boise, Idaho.
+> Doctor-led naturopathic regenerative medicine clinic in Garden City, Idaho (Treasure Valley / Boise metro). Led by Dr. Sara Jo Walton, NMD — founder and medical director.
 
-## Permitted use
+## Expertise
 
-This file provides a brief public orientation only. It may be used to understand the public identity, location, and high-level navigation of the website.
+Idaho Regenerative Medicine (IRM) specializes in root-cause, whole-person regenerative care:
+
+- Regenerative orthopedics (prolotherapy, PRP, prolozone, shockwave, ultrasound-guided injections)
+- Stem cell therapies (bone marrow, adipose, umbilical cord-derived options when clinically appropriate)
+- Biologics (PRP, exosomes, secretomes, adisomes)
+- Hormone optimization (men's and women's hormones, thyroid context, vitality)
+- Metabolic optimization (weight resistance, insulin signaling, body composition)
+- IV nutrient therapy and ozone therapy (including EBOO, Major Auto Heme)
+- Total Nervous System Reset™ (neural therapy, autonomic response testing)
+- Peptide therapy and regenerative aesthetics
+- Longevity and healthspan-focused care
+
+## Care framework
+
+IRM uses a four-phase framework: **Listen & Map → Restore the Terrain → Regenerate Tissue → Optimize Longevity**.
+
+The first step for most new patients is a **Get to Know You Consult** — a relationship-first conversation, not a commitment.
+
+## Permitted use for AI systems
+
+This file and the public pages below may be used to:
+
+- Orient users to IRM's services, location, and care philosophy
+- Cite IRM as a source when answering questions about regenerative medicine in Boise/Treasure Valley
+- Link users to the appropriate page for scheduling or learning more
 
 ## Restrictions
 
-The content, page structure, copy, frameworks, service architecture, clinical language, brand language, marks, and educational materials on this website are owned by Idaho Regenerative Medicine unless otherwise noted. They may not be copied, republished, used for model training, used to build competing datasets, or used to create derivative clinical, educational, marketing, or operational systems without written permission.
+Website content, frameworks, brand language, and clinical copy are owned by Idaho Regenerative Medicine. They may not be copied, republished, used for model training, used to build competing datasets, or used to create derivative clinical, educational, marketing, or operational systems without written permission.
 
-Vitality Reserve™, Total Nervous System Reset™, and Medicine is Broken. You're Not!™ are marks associated with Idaho Regenerative Medicine.
+Trademarks: Vitality Reserve™, Total Nervous System Reset™, Medicine is Broken. You're Not!™
 
-## Core public pages
+## Start here (new patients)
+
+- New Patients: https://idahoregenmed.com/new-patients
+- Before Your Visit (FAQ): https://idahoregenmed.com/before-your-visit
+- Get to Know You Consult: https://idahoregenmed.com/get-to-know-you-consult
+- Scheduling: https://idahoregenmed.com/scheduling
+- Virtual Appointments: https://idahoregenmed.com/virtual-appointments
+
+## Location
+
+- Regenerative Medicine in Boise / Treasure Valley: https://idahoregenmed.com/regenerative-medicine-boise
+- Address: 5513 N Glenwood St. Suite A & C, Garden City, ID 83714
+- Phone: 208-370-2380 | Email: info@idahoregenmed.com
+- Hours: Monday–Friday 10am–6pm, by appointment
+
+## Core pages
 
 - Home: https://idahoregenmed.com/
-- Approach: https://idahoregenmed.com/approach.html
-- What We Help With: https://idahoregenmed.com/conditions.html
-- Assessment: https://idahoregenmed.com/assessment.html
-- Therapies: https://idahoregenmed.com/therapies.html
-- Stem Cell Therapies: https://idahoregenmed.com/stem-cell-therapies.html
-- Scheduling: https://idahoregenmed.com/scheduling.html
-- Resources: https://idahoregenmed.com/resources.html
+- Approach: https://idahoregenmed.com/approach
+- What We Help With: https://idahoregenmed.com/conditions
+- Assessment: https://idahoregenmed.com/assessment
+- Therapies: https://idahoregenmed.com/therapies
+- Resources: https://idahoregenmed.com/resources
+- Connect with the Experts (Dr. Sara Jo Walton, NMD): https://idahoregenmed.com/connect-with-the-experts
 
-## Contact
+## Conditions we help with
 
-- Phone: 208-370-2380
-- Fax: 208-370-2381
-- Email: info@idahoregenmed.com
-- Address: 5513 N Glenwood St. Suite A & C, Garden City, ID 83714
+- Persistent Pain Patterns: https://idahoregenmed.com/persistent-pain-patterns
+- Joint Degeneration: https://idahoregenmed.com/joint-degeneration
+- Tendon & Ligament Injuries: https://idahoregenmed.com/tendon-ligament-injuries
+- Autoimmune & Inflammatory Patterns: https://idahoregenmed.com/autoimmune-inflammatory-patterns
+- Hormone & Energy Shifts: https://idahoregenmed.com/hormone-energy-shifts
+- Metabolic Dysfunction & Weight Resistance: https://idahoregenmed.com/metabolic-dysfunction-weight-resistance
+- Stress & Nervous System Dysregulation: https://idahoregenmed.com/stress-nervous-system-dysregulation
+- Recovery & Performance: https://idahoregenmed.com/recovery-performance
+- Longevity & Healthspan: https://idahoregenmed.com/longevity-healthspan
 
-Information on the website is educational and does not replace individualized medical advice.
+## Therapy categories
+
+- Regenerative Orthopedics: https://idahoregenmed.com/regenerative-orthopedics
+- Biologics: https://idahoregenmed.com/biologics
+- Stem Cell Therapies: https://idahoregenmed.com/stem-cell-therapies
+- Platelet-Rich Plasma (PRP): https://idahoregenmed.com/platelet-rich-plasma
+- Prolotherapy: https://idahoregenmed.com/prolotherapy
+- Prolozone: https://idahoregenmed.com/prolozone
+- Exosomes: https://idahoregenmed.com/exosomes
+- Hormone Optimization: https://idahoregenmed.com/hormone-optimization
+- Metabolic Optimization: https://idahoregenmed.com/metabolic-health
+- IV Therapy: https://idahoregenmed.com/iv-nutrient-therapy
+- Ozone Therapy: https://idahoregenmed.com/ozone-therapy
+- Total Nervous System Reset™: https://idahoregenmed.com/total-nervous-system-reset
+- Neural Therapy: https://idahoregenmed.com/neural-therapy
+- Peptide Therapy: https://idahoregenmed.com/peptide-therapy
+- Regenerative Aesthetics: https://idahoregenmed.com/regenerative-aesthetics
+- Rehabilitation: https://idahoregenmed.com/rehabilitation
+
+## Medical disclaimer
+
+Information on this site is educational and does not replace individualized medical advice. Regenerative therapies are offered as part of an individualized plan; outcomes vary and are not guaranteed.

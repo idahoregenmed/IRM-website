@@ -156,6 +156,154 @@
   };
   enhanceConditionMenus();
 
+  const assessmentMenuItems = [
+    { title: 'New Patients', url: './new-patients.html' },
+    { title: 'Before Your Visit', url: './before-your-visit.html' },
+    { title: 'Assessment Overview', url: './assessment.html' },
+    { title: 'Get to Know You Consult', url: './get-to-know-you-consult.html' },
+    { title: 'Virtual Appointments', url: './virtual-appointments.html' },
+    { title: 'Scheduling', url: './scheduling.html' }
+  ];
+  const assessmentFiles = assessmentMenuItems.map(item => item.url.replace('./', ''));
+
+  const buildNavLink = item => {
+    const link = document.createElement('a');
+    link.href = item.url;
+    link.textContent = item.title;
+    if (item.url.replace('./', '') === currentFile) link.classList.add('is-active');
+    return link;
+  };
+
+  const enhanceAssessmentMenus = () => {
+    const desktopDropdown = $('.nav__dropdown[aria-label="Assessment submenu"]');
+    if (desktopDropdown && !desktopDropdown.querySelector('[href="./new-patients.html"]')) {
+      desktopDropdown.innerHTML = '';
+      assessmentMenuItems.forEach(item => desktopDropdown.append(buildNavLink(item)));
+    }
+
+    const desktopTrigger = $('.nav__item .nav__trigger[href="./assessment.html"]');
+    if (desktopTrigger && assessmentFiles.includes(currentFile)) {
+      desktopTrigger.classList.add('is-active');
+    }
+
+    const mobileAssessmentLink = $('.mobile > a[href="./assessment.html"]');
+    if (mobileAssessmentLink && !document.getElementById('mobileAssessment')) {
+      const accordion = document.createElement('div');
+      accordion.className = 'mobile__accordion';
+      accordion.innerHTML = `
+        <button class="mobile__toggle" type="button" aria-expanded="false" aria-controls="mobileAssessment" data-mobile-toggle>Assessment<span aria-hidden="true"></span></button>
+        <div class="mobile__panel mobile__panel--assessment" id="mobileAssessment" hidden></div>
+      `;
+      const panel = accordion.querySelector('#mobileAssessment');
+      assessmentMenuItems.forEach(item => panel.append(buildNavLink(item)));
+      mobileAssessmentLink.replaceWith(accordion);
+    }
+  };
+  enhanceAssessmentMenus();
+
+  const therapySubMenuItems = [
+    { title: 'Stem Cell Therapies', url: './stem-cell-therapies.html' },
+    { title: 'Platelet-Rich Plasma', url: './platelet-rich-plasma.html' },
+    { title: 'Prolotherapy', url: './prolotherapy.html' },
+    { title: 'Prolozone', url: './prolozone.html' },
+    { title: 'Exosomes', url: './exosomes.html' },
+    { title: 'Neural Therapy', url: './neural-therapy.html' },
+    { title: 'Shockwave Therapy', url: './shockwave-therapy.html' }
+  ];
+
+  const enhanceTherapiesMenus = () => {
+    const therapiesGrid = $('.nav__dropdown[aria-label="Therapies submenu"] .nav__dropdown-grid');
+    if (therapiesGrid && !therapiesGrid.querySelector('[href="./stem-cell-therapies.html"]')) {
+      const biologicsLink = therapiesGrid.querySelector('[href="./biologics.html"]');
+      therapySubMenuItems.forEach(item => {
+        const link = buildNavLink(item);
+        link.classList.add('nav__dropdown-sub');
+        if (biologicsLink && item.url.includes('stem-cell')) {
+          biologicsLink.insertAdjacentElement('afterend', link);
+        } else {
+          therapiesGrid.append(link);
+        }
+      });
+      const indexLink = document.createElement('a');
+      indexLink.href = './therapies.html#therapy-index';
+      indexLink.textContent = 'Browse all therapies →';
+      indexLink.className = 'nav__dropdown-more';
+      therapiesGrid.append(indexLink);
+    }
+
+    const mobileTherapiesPanel = document.getElementById('mobileTherapies');
+    if (mobileTherapiesPanel && !mobileTherapiesPanel.querySelector('[href="./stem-cell-therapies.html"]')) {
+      therapySubMenuItems.forEach(item => mobileTherapiesPanel.append(buildNavLink(item)));
+      const indexLink = document.createElement('a');
+      indexLink.href = './therapies.html#therapy-index';
+      indexLink.textContent = 'Browse all therapies';
+      mobileTherapiesPanel.append(indexLink);
+    }
+  };
+  enhanceTherapiesMenus();
+
+  const enhanceFooterStartHere = () => {
+    $$('.footer__grid').forEach(grid => {
+      if (grid.querySelector('.footer__start-here')) return;
+      const exploreCol = grid.querySelector('.footer__links');
+      if (!exploreCol || !exploreCol.closest('div')?.querySelector('h4')) return;
+
+      const startHere = document.createElement('div');
+      startHere.className = 'footer__start-here';
+      startHere.innerHTML = `
+        <h4>Start here</h4>
+        <ul class="footer__links">
+          <li><a href="./new-patients.html">New Patients</a></li>
+          <li><a href="./before-your-visit.html">Before Your Visit</a></li>
+          <li><a href="./regenerative-medicine-boise.html">Boise &amp; Treasure Valley</a></li>
+          <li><a href="./virtual-appointments.html">Virtual Appointments</a></li>
+        </ul>
+      `;
+      const exploreDiv = exploreCol.closest('div');
+      if (exploreDiv) exploreDiv.before(startHere);
+    });
+  };
+  enhanceFooterStartHere();
+
+  const breadcrumbMap = {
+    'index.html': [{ name: 'Home', url: 'https://idahoregenmed.com/' }],
+    'new-patients.html': [{ name: 'Home', url: 'https://idahoregenmed.com/' }, { name: 'New Patients', url: 'https://idahoregenmed.com/new-patients' }],
+    'before-your-visit.html': [{ name: 'Home', url: 'https://idahoregenmed.com/' }, { name: 'Before Your Visit', url: 'https://idahoregenmed.com/before-your-visit' }],
+    'get-to-know-you-consult.html': [{ name: 'Home', url: 'https://idahoregenmed.com/' }, { name: 'Assessment', url: 'https://idahoregenmed.com/assessment' }, { name: 'Get to Know You Consult', url: 'https://idahoregenmed.com/get-to-know-you-consult' }],
+    'virtual-appointments.html': [{ name: 'Home', url: 'https://idahoregenmed.com/' }, { name: 'Virtual Appointments', url: 'https://idahoregenmed.com/virtual-appointments' }],
+    'regenerative-medicine-boise.html': [{ name: 'Home', url: 'https://idahoregenmed.com/' }, { name: 'Regenerative Medicine in Boise', url: 'https://idahoregenmed.com/regenerative-medicine-boise' }],
+    'stem-cell-therapies.html': [{ name: 'Home', url: 'https://idahoregenmed.com/' }, { name: 'Therapies', url: 'https://idahoregenmed.com/therapies' }, { name: 'Stem Cell Therapies', url: 'https://idahoregenmed.com/stem-cell-therapies' }],
+    'platelet-rich-plasma.html': [{ name: 'Home', url: 'https://idahoregenmed.com/' }, { name: 'Therapies', url: 'https://idahoregenmed.com/therapies' }, { name: 'Platelet-Rich Plasma', url: 'https://idahoregenmed.com/platelet-rich-plasma' }],
+    'prolotherapy.html': [{ name: 'Home', url: 'https://idahoregenmed.com/' }, { name: 'Therapies', url: 'https://idahoregenmed.com/therapies' }, { name: 'Prolotherapy', url: 'https://idahoregenmed.com/prolotherapy' }],
+    'prolozone.html': [{ name: 'Home', url: 'https://idahoregenmed.com/' }, { name: 'Therapies', url: 'https://idahoregenmed.com/therapies' }, { name: 'Prolozone', url: 'https://idahoregenmed.com/prolozone' }],
+    'exosomes.html': [{ name: 'Home', url: 'https://idahoregenmed.com/' }, { name: 'Therapies', url: 'https://idahoregenmed.com/therapies' }, { name: 'Exosomes', url: 'https://idahoregenmed.com/exosomes' }],
+    'neural-therapy.html': [{ name: 'Home', url: 'https://idahoregenmed.com/' }, { name: 'Therapies', url: 'https://idahoregenmed.com/therapies' }, { name: 'Neural Therapy', url: 'https://idahoregenmed.com/neural-therapy' }],
+    'shockwave-therapy.html': [{ name: 'Home', url: 'https://idahoregenmed.com/' }, { name: 'Therapies', url: 'https://idahoregenmed.com/therapies' }, { name: 'Shockwave Therapy', url: 'https://idahoregenmed.com/shockwave-therapy' }],
+    'therapies.html': [{ name: 'Home', url: 'https://idahoregenmed.com/' }, { name: 'Therapies', url: 'https://idahoregenmed.com/therapies' }],
+    'assessment.html': [{ name: 'Home', url: 'https://idahoregenmed.com/' }, { name: 'Assessment', url: 'https://idahoregenmed.com/assessment' }],
+    'scheduling.html': [{ name: 'Home', url: 'https://idahoregenmed.com/' }, { name: 'Scheduling', url: 'https://idahoregenmed.com/scheduling' }]
+  };
+
+  const injectBreadcrumbSchema = () => {
+    const crumbs = breadcrumbMap[currentFile];
+    if (!crumbs || document.querySelector('script[data-breadcrumb-schema]')) return;
+    const script = document.createElement('script');
+    script.type = 'application/ld+json';
+    script.dataset.breadcrumbSchema = 'auto';
+    script.textContent = JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': 'BreadcrumbList',
+      itemListElement: crumbs.map((crumb, i) => ({
+        '@type': 'ListItem',
+        position: i + 1,
+        name: crumb.name,
+        item: crumb.url
+      }))
+    });
+    document.head.append(script);
+  };
+  injectBreadcrumbSchema();
+
   const conditionTherapyConnections = {
     'persistent-pain-patterns.html': [
       { title: 'Regenerative Orthopedics', url: './regenerative-orthopedics.html', note: 'For pain patterns involving joints, tendons, ligaments, fascia, nerves, or old injuries.' },
@@ -339,6 +487,7 @@
     { title: 'Book & Philosophy', url: './book.html', keywords: 'Medicine is Broken You are Not book philosophy waitlist coming soon' },
     { title: 'Regenerative Medicine in Boise', url: './regenerative-medicine-boise.html', keywords: 'Boise Garden City Meridian Eagle Nampa Treasure Valley Idaho location clinic near me regenerative medicine' },
     { title: 'New Patients', url: './new-patients.html', keywords: 'new patient first visit getting started consult referral cash pay HSA FSA' },
+    { title: 'Before Your Visit', url: './before-your-visit.html', keywords: 'FAQ before visit questions referral insurance payment first visit virtual what to bring hours location cash pay HSA FSA' },
     { title: 'Virtual Appointments', url: './virtual-appointments.html', keywords: 'virtual telehealth remote online video consult Idaho telemedicine' },
     { title: 'Privacy Policy', url: './privacy-policy.html', keywords: 'privacy policy HIPAA data protection cookies legal' },
   ];

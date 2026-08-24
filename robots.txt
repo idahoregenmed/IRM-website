@@ -1,29 +1,40 @@
 # Idaho Regenerative Medicine
-# Public search engines may index this site. AI training, dataset creation,
-# automated content replication, and bulk extraction are not permitted.
+# Search engines and AI answer engines may index for discovery and citation.
+# Bulk training dataset creation and automated replication remain restricted (see llms.txt).
 
+User-agent: *
+Allow: /
+
+# AI search & answer engines — allowed for citation and patient discovery
 User-agent: GPTBot
-Disallow: /
+Allow: /
 
 User-agent: ChatGPT-User
-Disallow: /
+Allow: /
 
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: Claude-User
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+# Bulk scrapers — disallowed
 User-agent: CCBot
 Disallow: /
 
-User-agent: ClaudeBot
-Disallow: /
-
-User-agent: anthropic-ai
-Disallow: /
-
-User-agent: Claude-User
-Disallow: /
-
-User-agent: Google-Extended
-Disallow: /
-
-User-agent: Applebot-Extended
+User-agent: Bytespider
 Disallow: /
 
 User-agent: Meta-ExternalAgent
@@ -32,16 +43,7 @@ Disallow: /
 User-agent: FacebookBot
 Disallow: /
 
-User-agent: Bytespider
-Disallow: /
-
 User-agent: Amazonbot
 Disallow: /
-
-User-agent: PerplexityBot
-Disallow: /
-
-User-agent: *
-Allow: /
 
 Sitemap: https://idahoregenmed.com/sitemap.xml
