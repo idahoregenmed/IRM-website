@@ -220,7 +220,19 @@
 
   const injectBreadcrumbSchema = () => {
     const crumbs = breadcrumbMap[currentFile];
-    if (!crumbs || document.querySelector('script[data-breadcrumb-schema]')) return;
+    if (!crumbs) return;
+    if (document.querySelector('script[data-breadcrumb-schema]')) return;
+    const hasStaticBreadcrumbs = Array.from(document.querySelectorAll('script[type="application/ld+json"]'))
+      .some((node) => {
+        try {
+          const data = JSON.parse(node.textContent || '');
+          return data['@type'] === 'BreadcrumbList';
+        } catch {
+          return false;
+        }
+      });
+    if (hasStaticBreadcrumbs) return;
+
     const script = document.createElement('script');
     script.type = 'application/ld+json';
     script.dataset.breadcrumbSchema = 'auto';
