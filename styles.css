@@ -2208,6 +2208,15 @@ a[href$="autonomic-response-testing.html"] { --therapy-icon: "∿"; }
   font-size: 12.5px; color: rgba(251,246,234,.5);
 }
 .footer__fineprint { max-width: 60ch; text-align: right; }
+.footer__disambiguation {
+  margin: 14px auto 0;
+  padding: 0 var(--gutter);
+  max-width: var(--maxw);
+  font-size: 10.5px;
+  line-height: 1.45;
+  letter-spacing: 0.01em;
+  color: rgba(251,246,234,.34);
+}
 
 /* =========================================================================
    Interior pages

@@ -796,4 +796,13 @@
     link.textContent = 'Privacy Policy';
     copyright.append(sep, link);
   });
+
+  /* SEO: clinic name disambiguation (distinct from similarly named local clinics) */
+  $$('footer.footer').forEach(footer => {
+    if (footer.querySelector('.footer__disambiguation')) return;
+    const note = document.createElement('p');
+    note.className = 'footer__disambiguation';
+    note.textContent = 'Idaho Regenerative Medicine is an independent clinic and is not affiliated with or associated with the Idaho Center for Regenerative Medicine or other similarly named clinics in the Treasure Valley.';
+    footer.append(note);
+  });
 })();
