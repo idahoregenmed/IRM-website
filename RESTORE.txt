@@ -1,2 +1,0 @@
-The full original homepage is in git commit 8ed2e4abb7d5d96172d899b0ed350e476485171d as index.html.
-To restore in GitHub: open that commit, open index.html, use the history restore.
