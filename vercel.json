@@ -9,6 +9,12 @@
   ],
   "redirects": [
     {
+      "source": "/:path*",
+      "has": [{ "type": "host", "value": "www.idahoregenmed.com" }],
+      "destination": "https://idahoregenmed.com/:path*",
+      "permanent": true
+    },
+    {
       "source": "/404",
       "destination": "/404.html"
     },
