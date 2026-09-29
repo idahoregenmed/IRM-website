@@ -20,42 +20,11 @@
   <link rel="stylesheet" href="./styles.css" />
   <style>
     .page-hero .btn--primary:hover { background: linear-gradient(135deg, rgba(255,238,186,.98), rgba(220,174,68,.94)); color: var(--evergreen-3); border-color: rgba(255,230,163,.72); box-shadow: inset 0 1px 0 rgba(255,251,247,.38), 0 10px 30px -18px rgba(212,162,58,.72); }
-    .compare-wrap {
-      overflow-x: auto;
-      margin: 1.75rem 0 0;
-      border-radius: 20px;
-      border: 1px solid rgba(212,162,58,.38);
-      box-shadow: 0 22px 48px -30px rgba(1,62,95,.42);
-      background: #fff;
-    }
-    .compare-table { width: 100%; border-collapse: collapse; font-size: 0.94rem; }
-    .compare-table th, .compare-table td {
-      padding: 1rem 1.2rem;
-      text-align: left;
-      vertical-align: top;
-      border-bottom: 1px solid rgba(1,62,95,.08);
-    }
-    .compare-table thead th {
-      font-family: Fraunces, Georgia, serif;
-      font-weight: 600;
-      font-size: 1.05rem;
-      letter-spacing: 0.01em;
-      color: #013E5F;
-      background: #F8F2EA;
-      border-bottom: 1px solid rgba(212,162,58,.42);
-    }
-    .compare-table tbody th {
-      font-family: Fraunces, Georgia, serif;
-      font-weight: 500;
-      font-size: 0.92rem;
-      color: #013E5F;
-      width: 22%;
-      background: #fcfbf8;
-    }
-    .compare-table td:nth-child(2) { background: rgba(248,242,234,.62); }
-    .compare-table tbody tr:last-child th,
-    .compare-table tbody tr:last-child td { border-bottom: 0; }
-    @media (max-width: 640px) { .compare-table th, .compare-table td { padding: 0.75rem 0.7rem; font-size: 0.86rem; } }
+    .compare-dl { margin: 0; }
+    .compare-dl div { padding: 0.7rem 0; border-bottom: 1px solid rgba(1,62,95,.08); }
+    .compare-dl div:last-child { border-bottom: 0; padding-bottom: 0; }
+    .compare-dl dt { font-family: Fraunces, Georgia, serif; font-size: 0.86rem; font-weight: 500; color: #013E5F; margin: 0 0 0.2rem; }
+    .compare-dl dd { margin: 0; }
     .hero-gold-line { margin: 0.4rem 0 1rem; font-family: Fraunces, Georgia, serif; font-size: clamp(1.15rem, 2.2vw, 1.55rem); font-weight: 600; letter-spacing: 0.03em; color: #D4A23A; }
   </style>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://idahoregenmed.com/"},{"@type":"ListItem","position":2,"name":"Fat Transfer","item":"https://idahoregenmed.com/fat-transfer"},{"@type":"ListItem","position":3,"name":"Breast Augmentation with Fat Transfer","item":"https://idahoregenmed.com/breast-augmentation-fat-transfer"}]}</script>
@@ -130,22 +99,37 @@
           <p class="eyebrow">How this compares</p>
           <h2 class="h2">Fat transfer vs implants.</h2>
         </header>
-        <div class="compare-wrap" role="region" aria-label="Fat transfer versus implants">
-          <table class="compare-table">
-            <thead><tr><th scope="col"> </th><th scope="col">Fat transfer at IRM</th><th scope="col">Breast implants</th></tr></thead>
-            <tbody>
-              <tr><th scope="row">What is added</th><td>Your own fat</td><td>A silicone or saline device</td></tr>
-              <tr><th scope="row">Size in one session</th><td>0.5 to 1.5 cups.</td><td>Can be one, two, or more cups if that is the goal</td></tr>
-              <tr><th scope="row">Feel</th><td>Soft. Moves with you. Reads as breast tissue.</td><td>Can feel natural. Can also feel like a device, especially if tissue is thin</td></tr>
-              <tr><th scope="row">Shape</th><td>We fill where the breast needs it: lower pole, behind the nipple, upper pole, or all three. A down-pointing nipple can look perkier. This is not a surgical lift. The map is built at the New Patient Visit.</td><td>Can add projection and a more defined upper pole</td></tr>
-              <tr><th scope="row">Contour elsewhere</th><td>Yes. Abdomen, flanks, arms, back, inner or outer thighs.</td><td>No harvest. No two-for-one</td></tr>
-              <tr><th scope="row">Scars</th><td>Small access points at harvest and breast</td><td>A breast-fold, areola, or armpit incision</td></tr>
-              <tr><th scope="row">In the body long term</th><td>Living fat. Follows your weight. No device to replace</td><td>A device that may need exchange or removal later</td></tr>
-              <tr><th scope="row">Mammograms</th><td>Tell the imaging team. Screening continues</td><td>Tell the imaging team. Screening continues</td></tr>
-              <tr><th scope="row">Second session</th><td>Sometimes planned after six months if you want more</td><td>Usually one operation for size</td></tr>
-              <tr><th scope="row">Best when</th><td>You want your volume back, not a new silhouette — and you have fat to spare</td><td>You want a larger, more predictable jump in one day</td></tr>
-            </tbody>
-          </table>
+        <div class="page-grid page-grid--two">
+          <article class="page-card page-card--blue">
+            <h3>Fat transfer at IRM</h3>
+            <dl class="compare-dl">
+              <div><dt>What is added</dt><dd>Your own fat</dd></div>
+              <div><dt>Size in one session</dt><dd>0.5 to 1.5 cups</dd></div>
+              <div><dt>Feel</dt><dd>Soft. Moves with you. Reads as breast tissue.</dd></div>
+              <div><dt>Shape</dt><dd>We fill where the breast needs it: lower pole, behind the nipple, upper pole, or all three. A down-pointing nipple can look perkier. This is not a surgical lift.</dd></div>
+              <div><dt>Contour elsewhere</dt><dd>Abdomen, flanks, arms, back, inner or outer thighs</dd></div>
+              <div><dt>Scars</dt><dd>Small access points at harvest and breast</dd></div>
+              <div><dt>In the body long term</dt><dd>Living fat. Follows your weight. No device to replace</dd></div>
+              <div><dt>Mammograms</dt><dd>Tell the imaging team. Screening continues</dd></div>
+              <div><dt>Second session</dt><dd>Sometimes planned after six months if you want more</dd></div>
+              <div><dt>Best when</dt><dd>You want your volume back, not a new silhouette — and you have fat to spare</dd></div>
+            </dl>
+          </article>
+          <article class="page-card">
+            <h3>Breast implants</h3>
+            <dl class="compare-dl">
+              <div><dt>What is added</dt><dd>A silicone or saline device</dd></div>
+              <div><dt>Size in one session</dt><dd>Can be one, two, or more cups if that is the goal</dd></div>
+              <div><dt>Feel</dt><dd>Can feel natural. Can also feel like a device, especially if tissue is thin</dd></div>
+              <div><dt>Shape</dt><dd>Can add projection and a more defined upper pole</dd></div>
+              <div><dt>Contour elsewhere</dt><dd>No harvest. No two-for-one</dd></div>
+              <div><dt>Scars</dt><dd>A breast-fold, areola, or armpit incision</dd></div>
+              <div><dt>In the body long term</dt><dd>A device that may need exchange or removal later</dd></div>
+              <div><dt>Mammograms</dt><dd>Tell the imaging team. Screening continues</dd></div>
+              <div><dt>Second session</dt><dd>Usually one operation for size</dd></div>
+              <div><dt>Best when</dt><dd>You want a larger, more predictable jump in one day</dd></div>
+            </dl>
+          </article>
         </div>
         <p class="prose" style="margin-top:1.25rem;max-width:42rem;margin-left:auto;margin-right:auto;text-align:center;">Idaho Regenerative Medicine offers fat transfer. We do not place implants. The comparison is here so you can decide with clear eyes.</p>
       </div>
