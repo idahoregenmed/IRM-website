@@ -20,13 +20,42 @@
   <link rel="stylesheet" href="./styles.css" />
   <style>
     .page-hero .btn--primary:hover { background: linear-gradient(135deg, rgba(255,238,186,.98), rgba(220,174,68,.94)); color: var(--evergreen-3); border-color: rgba(255,230,163,.72); box-shadow: inset 0 1px 0 rgba(255,251,247,.38), 0 10px 30px -18px rgba(212,162,58,.72); }
-    .compare-wrap { overflow-x: auto; margin: 1.5rem 0 0; }
-    .compare-table { width: 100%; border-collapse: collapse; font-size: 0.95rem; background: #fff; }
-    .compare-table th, .compare-table td { padding: 0.85rem 1rem; text-align: left; vertical-align: top; border-bottom: 1px solid rgba(0,80,110,.12); }
-    .compare-table thead th { font-family: Fraunces, Georgia, serif; font-weight: 600; color: #0b4a63; background: #f4f8fa; }
-    .compare-table tbody th { font-weight: 600; color: #16323c; width: 22%; }
-    .compare-table td:nth-child(2) { background: rgba(0,125,181,.06); }
-    @media (max-width: 640px) { .compare-table th, .compare-table td { padding: 0.7rem 0.65rem; font-size: 0.88rem; } }
+    .compare-wrap {
+      overflow-x: auto;
+      margin: 1.75rem 0 0;
+      border-radius: 20px;
+      border: 1px solid rgba(212,162,58,.38);
+      box-shadow: 0 22px 48px -30px rgba(1,62,95,.42);
+      background: #fff;
+    }
+    .compare-table { width: 100%; border-collapse: collapse; font-size: 0.94rem; }
+    .compare-table th, .compare-table td {
+      padding: 1rem 1.2rem;
+      text-align: left;
+      vertical-align: top;
+      border-bottom: 1px solid rgba(1,62,95,.08);
+    }
+    .compare-table thead th {
+      font-family: Fraunces, Georgia, serif;
+      font-weight: 600;
+      font-size: 1.05rem;
+      letter-spacing: 0.01em;
+      color: #013E5F;
+      background: #F8F2EA;
+      border-bottom: 1px solid rgba(212,162,58,.42);
+    }
+    .compare-table tbody th {
+      font-family: Fraunces, Georgia, serif;
+      font-weight: 500;
+      font-size: 0.92rem;
+      color: #013E5F;
+      width: 22%;
+      background: #fcfbf8;
+    }
+    .compare-table td:nth-child(2) { background: rgba(248,242,234,.62); }
+    .compare-table tbody tr:last-child th,
+    .compare-table tbody tr:last-child td { border-bottom: 0; }
+    @media (max-width: 640px) { .compare-table th, .compare-table td { padding: 0.75rem 0.7rem; font-size: 0.86rem; } }
     .hero-gold-line { margin: 0.4rem 0 1rem; font-family: Fraunces, Georgia, serif; font-size: clamp(1.15rem, 2.2vw, 1.55rem); font-weight: 600; letter-spacing: 0.03em; color: #D4A23A; }
   </style>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://idahoregenmed.com/"},{"@type":"ListItem","position":2,"name":"Fat Transfer","item":"https://idahoregenmed.com/fat-transfer"},{"@type":"ListItem","position":3,"name":"Breast Augmentation with Fat Transfer","item":"https://idahoregenmed.com/breast-augmentation-fat-transfer"}]}</script>
@@ -118,7 +147,7 @@
             </tbody>
           </table>
         </div>
-        <p class="prose" style="margin-top:1.25rem;max-width:42rem;margin-left:auto;margin-right:auto;text-align:center;">Idaho Regenerative Medicine offers fat transfer. We do not place implants. The chart is here so you can decide with clear eyes.</p>
+        <p class="prose" style="margin-top:1.25rem;max-width:42rem;margin-left:auto;margin-right:auto;text-align:center;">Idaho Regenerative Medicine offers fat transfer. We do not place implants. The comparison is here so you can decide with clear eyes.</p>
       </div>
     </section>
     <section class="page-section page-section--tint">
