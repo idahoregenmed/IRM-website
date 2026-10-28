@@ -78,7 +78,72 @@
         </div>
         <div class="lp-card" id="consult-form">
           <h2>Book your complimentary consultation</h2>
-          <iframe
+          <form class="lp-form" id="leadForm" novalidate>
+            <div class="lp-field"><label for="lf-first">First Name</label><input id="lf-first" name="firstName" type="text" autocomplete="given-name" placeholder="Enter your first name" /></div>
+            <div class="lp-field"><label for="lf-last">Last Name</label><input id="lf-last" name="lastName" type="text" autocomplete="family-name" placeholder="Enter your last name" /></div>
+            <div class="lp-field"><label for="lf-phone">Phone <span aria-hidden="true">*</span></label><input id="lf-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="(555) 000-0000" required /></div>
+            <div class="lp-field"><label for="lf-email">Email <span aria-hidden="true">*</span></label><input id="lf-email" name="email" type="email" autocomplete="email" placeholder="your@email.com" required /></div>
+            <div class="lp-hp" aria-hidden="true"><label>Website<input name="website" type="text" tabindex="-1" autocomplete="off" /></label></div>
+            <label class="lp-consent"><input type="checkbox" name="consent" id="lf-consent" /><span>By submitting, you agree to be contacted by Idaho Regenerative Medicine by text or email about your request. Message and data rates may apply. Reply STOP to opt out.</span></label>
+            <p class="lp-error" id="lf-error" role="alert" hidden></p>
+            <button class="lp-submit" type="submit" id="lf-submit">Request my consultation</button>
+          </form>
+          <div class="lp-thanks" id="lf-thanks" tabindex="-1" hidden>
+            <h3>Thank you!</h3>
+            <p>We received your request. Our team will reach out shortly to schedule your complimentary consultation.</p>
+          </div>
+          <p class="lp-disclaimer">The complimentary consultation is an introduction to our practice and approach. It does not include a medical evaluation, treatment, or recommendations.</p>
+          <p class="lp-disclaimer lp-legal">By submitting this form you agree to our <a href="/terms-of-service">Terms of Service</a> and <a href="/privacy-policy">Privacy Policy</a>.</p>
+          <script>
+            (function () {
+              var form = document.getElementById('leadForm');
+              if (!form) return;
+              var t0 = Date.now(), card = document.getElementById('consult-form');
+              var err = document.getElementById('lf-error'), btn = document.getElementById('lf-submit');
+              var keys = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term', 'fbclid', 'gclid'];
+              var qs = new URLSearchParams(window.location.search), utm = {};
+              keys.forEach(function (k) { if (qs.get(k)) utm[k] = qs.get(k); });
+              function showErr(m) { err.textContent = m; err.hidden = false; }
+              function fallback() { /* last resort: load the HighLevel form so no lead is lost */
+                form.hidden = true;
+                var f = document.getElementById('hl-fallback').content.firstElementChild.cloneNode(true);
+                var q = window.location.search; if (q && q.length > 1) f.src = f.src.split('?')[0] + q;
+                var p = document.createElement('p'); p.className = 'lp-error'; p.textContent = 'Our quick form is unavailable right now. Please use this form instead.';
+                form.parentNode.insertBefore(p, form); form.parentNode.insertBefore(f, form);
+              }
+              form.addEventListener('submit', function (e) {
+                e.preventDefault(); err.hidden = true;
+                var d = new FormData(form);
+                var email = (d.get('email') || '').trim(), phone = (d.get('phone') || '').replace(/\D/g, '');
+                if (phone.length === 11 && phone[0] === '1') phone = phone.slice(1);
+                if (phone.length !== 10) return showErr('Please enter a valid 10-digit phone number.');
+                if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) return showErr('Please enter a valid email address.');
+                btn.disabled = true; btn.textContent = 'Sending\u2026';
+                var ctl = new AbortController(), to = setTimeout(function () { ctl.abort(); }, 15000);
+                fetch('/api/lead', {
+                  method: 'POST', headers: { 'Content-Type': 'application/json' }, signal: ctl.signal,
+                  body: JSON.stringify({
+                    firstName: d.get('firstName'), lastName: d.get('lastName'), email: email, phone: phone,
+                    consent: !!d.get('consent'), website: d.get('website'), elapsed: Date.now() - t0,
+                    utm: utm, page: location.href, referrer: document.referrer
+                  })
+                }).then(function (r) { return r.json().then(function (j) { return { s: r.status, j: j }; }); })
+                  .then(function (x) {
+                    clearTimeout(to);
+                    if (x.j && x.j.ok) {
+                      form.hidden = true; var t = document.getElementById('lf-thanks'); t.hidden = false; t.focus();
+                      if (window.gtag) window.gtag('event', 'generate_lead');
+                      if (window.fbq) window.fbq('track', 'Lead');
+                    } else if (x.s === 422) { btn.disabled = false; btn.textContent = 'Request my consultation'; showErr('Please check your phone number and email and try again.'); }
+                    else if (x.s === 429) { btn.disabled = false; btn.textContent = 'Request my consultation'; showErr('Too many attempts. Please try again in a few minutes.'); }
+                    else { fallback(); }
+                  })
+                  .catch(function () { clearTimeout(to); fallback(); });
+              });
+            })();
+          </script>
+          <template id="hl-fallback">
+            <iframe
             src="https://api.leadconnectorhq.com/widget/form/aivRUDSRUq61NCbSzgZV"
             style="width:100%;height:100%;border:none;border-radius:3px"
             id="inline-aivRUDSRUq61NCbSzgZV"
@@ -96,19 +161,7 @@
             title="Skier Ad Consultation Form"
             name="Skier Ad Consultation Form"
           ></iframe>
-          <p class="lp-disclaimer">The complimentary consultation is an introduction to our practice and approach. It does not include a medical evaluation, treatment, or recommendations.</p>
-          <p class="lp-disclaimer lp-legal">By submitting this form you agree to our <a href="/terms-of-service">Terms of Service</a> and <a href="/privacy-policy">Privacy Policy</a>.</p>
-          <script>
-            /* Pass the landing page's query string (utm_*, etc.) through to the HighLevel form iframe. */
-            (function () {
-              var f = document.getElementById('inline-aivRUDSRUq61NCbSzgZV');
-              var q = window.location.search;
-              if (f && q && q.length > 1) {
-                f.src = f.src.split('?')[0] + q;
-              }
-            })();
-          </script>
-          <script src="https://link.msgsndr.com/js/form_embed.js"></script>
+          </template>
         </div>
       </div>
     </section>
