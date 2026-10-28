@@ -53,3 +53,17 @@
 .lp-reviews__link a{color:var(--evergreen-2);font-weight:600;text-decoration:underline;text-underline-offset:3px}
 .lp-reviews__link a:hover{color:var(--evergreen-3)}
 @media (max-width:700px){.lp-reviews__grid{grid-template-columns:1fr}}
+
+/* Native lead form */
+.lp-form{display:flex;flex-direction:column;gap:14px}
+.lp-field label{display:block;font-weight:600;font-size:.95rem;margin:0 0 6px;color:var(--ink)}
+.lp-field input{width:100%;font:inherit;font-size:16px;padding:12px 14px;border:1px solid #cfd6dd;border-radius:8px;background:#fff;color:var(--ink);box-sizing:border-box}
+.lp-field input:focus{outline:2px solid var(--evergreen-3,#0a4a6e);outline-offset:1px;border-color:transparent}
+.lp-hp{position:absolute!important;left:-9999px;width:1px;height:1px;overflow:hidden}
+.lp-consent{display:flex;gap:10px;align-items:flex-start;font-size:.88rem;line-height:1.45;color:var(--ink);cursor:pointer}
+.lp-consent input{margin-top:3px;width:20px;height:20px;flex:0 0 20px}
+.lp-submit{font:inherit;font-weight:600;font-size:1.05rem;padding:14px 18px;border:0;border-radius:8px;background:#1d5fe8;color:#fff;cursor:pointer;min-height:48px}
+.lp-submit:hover{background:#174fc4}.lp-submit[disabled]{opacity:.7;cursor:wait}
+.lp-error{color:#b3261e;font-size:.92rem;margin:0}
+.lp-thanks{padding:12px 0}.lp-thanks h3{font-family:var(--serif);margin:0 0 8px;color:var(--evergreen-3)}.lp-thanks p{margin:0}
+.lp-form[hidden],.lp-thanks[hidden],.lp-error[hidden]{display:none}
