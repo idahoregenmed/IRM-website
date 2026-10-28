@@ -34,6 +34,8 @@
 }
 .lp-fine{font-size:.85rem;color:#C9E3EC;margin:18px 0 0}
 .lp-disclaimer{font-size:.85rem;line-height:1.5;color:var(--ink);opacity:.8;margin:14px 0 0}
+.lp-legal{margin-top:8px}
+.lp-legal a{color:inherit;text-decoration:underline;text-underline-offset:2px}
 
 /* What patients say */
 .lp-reviews{background:var(--parchment-2);color:var(--ink);padding:clamp(48px,6vw,80px) 0}
