@@ -1,0 +1,38 @@
+/* /consult ad landing page — page-specific styles (uses site tokens from styles.css) */
+.lp-hero{position:relative;background:var(--evergreen-3);color:#fff;overflow:hidden;padding:clamp(48px,7vw,96px) 0 clamp(56px,7vw,96px)}
+.lp-hero__bg{position:absolute;inset:0;background:url("./assets/consult-skier.jpg") 30% 40%/cover no-repeat;opacity:1}
+.lp-hero__bg::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(1,62,95,.88) 0%,rgba(1,62,95,.5) 42%,rgba(1,62,95,.12) 100%),linear-gradient(0deg,var(--evergreen-3) 0%,rgba(1,62,95,0) 25%)}
+.lp-hero__grid{position:relative;z-index:1;display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(28px,4vw,56px);align-items:start}
+.lp-eyebrow{font-family:var(--mono);text-transform:uppercase;letter-spacing:.2em;font-size:.8rem;color:#F4D58A;margin:0 0 14px}
+.lp-h1{font-family:var(--serif);font-weight:600;font-size:clamp(2.6rem,5.4vw + .4rem,4.6rem);line-height:1.04;letter-spacing:-.02em;margin:0 0 20px;color:#fff;text-shadow:0 2px 20px rgba(0,0,0,.35)}
+.lp-sub{font-size:var(--lead);color:#E3F1F6;max-width:36rem;margin:0 0 26px}
+.lp-bullets{list-style:none;padding:0;margin:0}
+.lp-bullets li{position:relative;padding-left:30px;margin:0 0 12px;font-size:1.0625rem;color:#fff}
+.lp-bullets li::before{content:"";position:absolute;left:0;top:.5em;width:12px;height:12px;border-radius:50%;background:#F4D58A;box-shadow:0 0 0 4px rgba(244,213,138,.25)}
+.lp-card{background:#fff;color:var(--ink);border-radius:var(--r-lg);padding:clamp(20px,3vw,30px);box-shadow:0 24px 60px rgba(0,0,0,.4);border-top:5px solid var(--terracotta)}
+.lp-card h2{font-family:var(--serif);font-weight:600;font-size:1.5rem;line-height:1.2;margin:0 0 14px;color:var(--evergreen-3)}
+.lp-card iframe{display:block;width:100%;min-height:600px;border:none}
+@media (max-width:900px){
+  .lp-hero__grid{display:block}
+  .lp-hero__bg::after{background:linear-gradient(180deg,rgba(1,62,95,.7) 0%,rgba(1,62,95,.85) 100%)}
+  .lp-card{margin-top:28px}
+}
+.lp-fine{font-size:.85rem;color:#C9E3EC;margin:18px 0 0}
+.lp-disclaimer{font-size:.85rem;line-height:1.5;color:var(--ink);opacity:.8;margin:14px 0 0}
+
+/* What patients say */
+.lp-reviews{background:var(--parchment-2);color:var(--ink);padding:clamp(48px,6vw,80px) 0}
+.lp-reviews__h{font-family:var(--serif);font-weight:600;font-size:clamp(1.8rem,2.4vw + 1rem,2.6rem);line-height:1.15;letter-spacing:-.01em;color:var(--evergreen-3);margin:0 0 clamp(24px,3vw,36px);text-align:center}
+.lp-reviews__grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(16px,2.4vw,28px)}
+.lp-quote{margin:0;background:#fff;border:1px solid var(--line);border-top:4px solid var(--terracotta);border-radius:var(--r-lg);padding:clamp(20px,2.6vw,30px);display:flex;flex-direction:column;box-shadow:0 10px 30px rgba(1,62,95,.08)}
+.lp-quote__stars{color:var(--terracotta);letter-spacing:.15em;font-size:1.05rem;margin:0 0 12px}
+.lp-quote blockquote{margin:0 0 18px;flex:1}
+.lp-quote blockquote p{margin:0;font-family:var(--serif);font-size:1.1rem;line-height:1.55;color:var(--ink-2)}
+.lp-quote figcaption{display:flex;flex-direction:column;gap:2px}
+.lp-quote__name{font-weight:700;color:var(--evergreen-3)}
+.lp-quote__src{font-family:var(--mono);font-size:.78rem;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-mute)}
+.lp-reviews__note{font-size:.85rem;line-height:1.5;color:var(--ink-mute);text-align:center;margin:clamp(20px,2.6vw,28px) 0 6px}
+.lp-reviews__link{text-align:center;margin:0}
+.lp-reviews__link a{color:var(--evergreen-2);font-weight:600;text-decoration:underline;text-underline-offset:3px}
+.lp-reviews__link a:hover{color:var(--evergreen-3)}
+@media (max-width:700px){.lp-reviews__grid{grid-template-columns:1fr}}
