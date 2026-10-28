@@ -436,6 +436,7 @@
     { title: 'Before Your Visit', url: './before-your-visit.html', keywords: 'FAQ before visit questions referral insurance payment first visit virtual what to bring hours location cash pay HSA FSA' },
     { title: 'Virtual Appointments', url: './virtual-appointments.html', keywords: 'virtual telehealth remote online video consult Idaho telemedicine' },
     { title: 'Privacy Policy', url: './privacy-policy.html', keywords: 'privacy policy HIPAA data protection cookies legal' },
+    { title: 'Terms of Service', url: './terms-of-service.html', keywords: 'terms of service terms conditions legal text messaging SMS consent STOP disclaimer' },
   ];
 
   const scoreSearchResult = (page, query) => {
@@ -797,16 +798,20 @@
   };
   injectFaqSchema();
 
-  /* SEO: privacy policy link in footer */
+  /* SEO: privacy policy and terms links in footer */
   $$('.footer__bottom').forEach(bottom => {
-    if (bottom.querySelector('a[href*="privacy-policy"]')) return;
+    if (bottom.querySelector('a[href*="privacy-policy"]') && bottom.querySelector('a[href*="terms-of-service"]')) return;
     const copyright = bottom.querySelector('p:first-child');
     if (!copyright) return;
-    const sep = document.createTextNode(' · ');
-    const link = document.createElement('a');
-    link.href = './privacy-policy.html';
-    link.textContent = 'Privacy Policy';
-    copyright.append(sep, link);
+    const addLink = (href, text) => {
+      if (bottom.querySelector(`a[href*="${href}"]`)) return;
+      const link = document.createElement('a');
+      link.href = `./${href}.html`;
+      link.textContent = text;
+      copyright.append(document.createTextNode(' · '), link);
+    };
+    addLink('privacy-policy', 'Privacy Policy');
+    addLink('terms-of-service', 'Terms of Service');
   });
 
   /* SEO: clinic name disambiguation (distinct from similarly named local clinics) */
