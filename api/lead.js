@@ -77,7 +77,7 @@ module.exports = async (req, res) => {
     if (!token || !locationId) return json(res, 503, { ok: false, error: 'not_configured' });
     const H = { Authorization: 'Bearer ' + token, Version: '2021-07-28', 'Content-Type': 'application/json', Accept: 'application/json' };
     const body = { locationId, firstName, lastName, email, phone, tags, source: 'Landing page /consult', country: 'US' };
-    if (!consent) body.dndSettings = { sms: { status: 'active', message: 'No text consent given on web form' } };
+    if (!consent) body.dndSettings = { SMS: { status: 'active', message: 'No text consent given on web form', code: 'web_form_no_consent' } };
     const r = await fetch(HL_BASE + '/contacts/upsert', { method: 'POST', headers: H, body: JSON.stringify(body) });
     const data = await r.json().catch(() => ({}));
     if (!r.ok) { console.error('HL upsert failed', r.status, JSON.stringify(data).slice(0, 300)); return json(res, 502, { ok: false, error: 'upstream' }); }
