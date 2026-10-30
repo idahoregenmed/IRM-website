@@ -10,7 +10,12 @@
   "redirects": [
     {
       "source": "/:path*",
-      "has": [{ "type": "host", "value": "www.idahoregenmed.com" }],
+      "has": [
+        {
+          "type": "host",
+          "value": "www.idahoregenmed.com"
+        }
+      ],
       "destination": "https://idahoregenmed.com/:path*",
       "permanent": true
     },
@@ -26,6 +31,26 @@
     {
       "source": "/cell-therapies.html",
       "destination": "/stem-cell-therapies",
+      "permanent": true
+    },
+    {
+      "source": "/privacy-policy",
+      "destination": "/privacy",
+      "permanent": true
+    },
+    {
+      "source": "/privacy-policy.html",
+      "destination": "/privacy",
+      "permanent": true
+    },
+    {
+      "source": "/terms-of-service",
+      "destination": "/terms",
+      "permanent": true
+    },
+    {
+      "source": "/terms-of-service.html",
+      "destination": "/terms",
       "permanent": true
     }
   ]

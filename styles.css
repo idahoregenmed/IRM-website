@@ -3175,3 +3175,6 @@ a.page-card:focus-visible {
 .legal-content ul { padding-left: 1.25rem; margin: 0.75rem 0; }
 .legal-content li { margin-bottom: 0.4rem; }
 .legal-content a { color: var(--evergreen); }
+
+.footer__legal a { color: inherit; text-decoration: underline; text-underline-offset: 2px; }
+.footer__legal a:hover { color: var(--aqua); }
